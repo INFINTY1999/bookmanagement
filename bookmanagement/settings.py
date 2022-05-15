@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'bookmanagement.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bookmanagement',
-        'USER':'postgres',
+        'NAME':'book',
+        'USER':'ashish',
         'PORT':'5432',
-        'PASSWORD':'728909',
-        'HOST':'localhost'
+        'PASSWORD':'ashish123',
+        'HOST':'database-ashish.coskk4tfkogb.ap-south-1.rds.amazonaws.com'
     }
 }
 
