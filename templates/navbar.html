@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="sidenav">
+
+    <button class="dropdown-btn">Users 
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        {% if request.user.is_authenticated %}  
+        <a href="{% url 'register' %}">Add Users</a>
+        {% endif %}
+        <a href="{% url 'allusers' %}">View/Edit Users</a>
+    </div>
+
+    <button class="dropdown-btn">Books 
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        {% if request.user.is_authenticated %}    
+        <a href="{% url 'addbook' %}">Add Books</a>
+        <a href="{% url 'upload' %}">Upload Excel</a>
+        {% endif %}
+        <a href="{% url 'allbook' %}">View/Edit Books</a>
+    </div>
+
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+</div>

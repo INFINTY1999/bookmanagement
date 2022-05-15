@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="main">
+  {% if i %}
+  <h3>Edit Book</h3> 
+  {% else %}
+  <h3>Add Books</h3>
+  {% endif %}
+
+  {% if not i  %}
+  <div class="container">
+
+    <form action="" method="POST">
+      
+      {% csrf_token %}
+      <!-- Input:Text -->
+      {% for field in form1 %}
+    
+      <label for="formInput#text">{{field.label}}</label>
+
+      {{field}}
+
+      {% endfor %}
+
+      <input type="submit" value="Add Author" />
+    </form>
+  </div>
+  {% endif %}
+
+  <div class="container">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <!-- Input:Text -->
+      {% for fields in form2 %}
+    
+      <label for="formInput#text">{{fields.label}}</label>
+
+      {{fields}}
+
+      {% endfor %}
+
+      {% if i %}
+      <input type="submit" value="Edit Book" />
+      {% else %}
+      <input type="submit" value="Add Book" />
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock content %}

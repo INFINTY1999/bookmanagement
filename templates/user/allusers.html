@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="main">
+    <h1> All users </h1>
+
+    <table>
+        <tr>
+            <th>User Name</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in u %}
+        <tr>
+            <td>{{i.username}}</td>
+            <td>{{i.first_name}} {{i.last_name}}</td>
+            <td>{{i.email}}</td>
+            <td><a href="{% url 'updateuser' i.id %}">edit</a></td>
+            <td><a href="{% url 'deleteuser' i.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

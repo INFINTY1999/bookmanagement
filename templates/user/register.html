@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="main">
+  <h3>Add Users</h3>
+  <div class="container">
+    
+    <form action="{% url 'register' %}" method="POST">
+      {% csrf_token %}
+      <!-- Input:Text -->
+      {% for field in form %}
+    
+      <label for="formInput#text">{{field.label}}</label>
+      {{field}}
+    
+      {% for error in field.errors %}
+     
+      {{error}}
+    
+      {% endfor %}
+      {% endfor %}
+    
+      <input type="submit" value="Regsiter" />
+    </form>
+
+  </div>
+</div>
+
+{% endblock content %}

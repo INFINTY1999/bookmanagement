@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="main">
+    <h3>Delete</h3>
+    <div class="container">
+        <form method = "POST" action ="" >
+            {% csrf_token %}        
+            <p>Are u shure that u want to delete this "{{object}}"</p>
+            <a href = "{{request.GET.next}}">Go Back</a>
+    
+            <input type="submit" value="Confirm" />
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
